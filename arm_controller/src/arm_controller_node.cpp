@@ -58,7 +58,6 @@ class PositionControllerPublisher : public rclcpp::Node
     size_t count_;
 };
 
-
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
