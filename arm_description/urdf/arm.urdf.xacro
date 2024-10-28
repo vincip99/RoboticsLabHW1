@@ -425,7 +425,7 @@
   </gazebo>
 
   <!-- Hardware Interface macro include -->
-  <xacro:include filename="$(find arm_description)/urdf/arm_description_interface.xacro"/>
+  <xacro:include filename="$(find arm_description)/urdf/arm_hardware_interface.xacro"/>
 
   <ros2_control name="HardwareInterface_Ignition" type="system">
 
