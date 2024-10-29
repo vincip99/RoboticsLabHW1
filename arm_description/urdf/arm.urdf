@@ -6,6 +6,10 @@
     <color rgba="1 0 0 1"/>
   </material>
 
+  <!-- Material Black for Dynamixel motor -->
+  <material name="black">
+      <color rgba="0 0 0 1"/>
+  </material>
 
   <link name="base_link">
     <visual>
@@ -92,8 +96,8 @@
       <geometry>
         <mesh filename="package://arm_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
       </geometry>
-      
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -157,6 +161,7 @@
         <mesh filename="package://arm_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -219,8 +224,8 @@
       <geometry>
         <mesh filename="package://arm_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
       </geometry>
-      
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -286,6 +291,7 @@
         <mesh filename="package://arm_description/meshes/dyn.stl" scale="0.01 0.01 0.01"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
