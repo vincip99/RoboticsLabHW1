@@ -23,11 +23,11 @@ def generate_launch_description():
     )
 
     # Controller manager node, with parameters pointing to the YAML configuration
-    controller_manager = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[controller_config]
-    )
+    # controller_manager = Node(
+    #    package="controller_manager",
+    #    executable="ros2_control_node",
+    #    parameters=[controller_config]
+    #)
 
     joint_state_broadcaster = Node(
         package="controller_manager",
@@ -42,7 +42,7 @@ def generate_launch_description():
     )
 
     nodes_to_start = [
-        controller_manager,
+        #controller_manager,
         joint_state_broadcaster, 
         position_controller
     ]
