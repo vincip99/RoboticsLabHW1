@@ -10,6 +10,15 @@
       <color rgba="0 0 0 1"/>
   </material>
 
+  <!-- Add world reference -->
+  <link name="world"/>
+
+  <joint name="base_joint" type="fixed">
+    <origin rpy="0.0 0 0" xyz="0 0 0"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
   <link name="base_link">
     <visual>
       <geometry>

@@ -27,7 +27,7 @@ class JointStateSubscriber : public rclcpp::Node
     void topic_callback(const sensor_msgs::msg::JointState & msg) const
     {
       RCLCPP_INFO(this->get_logger(), "-----Joint Positions-----\n");
-      for (int i = 0; i < 4; i++)
+      for (int i = 0; i < 5; i++)
         RCLCPP_INFO(this->get_logger(), "Joint Position %d: '%6f'\n", i+1, msg.position[i]);
     }
     rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr subscription_;
@@ -41,7 +41,7 @@ class PositionControllerPublisher : public rclcpp::Node
     : Node("position_controller_publisher"), count_(0)
     {
       // Declare an external parameter with a default value
-      this->declare_parameter<std::vector<double>>("joint_positions", {1.0, 1.0, 1.0, 1.0});
+      this->declare_parameter<std::vector<double>>("joint_positions", {1.0, 1.0, 1.0, 1.0, 0.0});
 
       // Retrieve the parameter's value and initialize the publisher and timer
       publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/position_controller/commands", 10);
