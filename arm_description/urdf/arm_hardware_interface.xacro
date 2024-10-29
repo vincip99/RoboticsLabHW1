@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <xacro:macro name="arm_hardware_interface" params="joint_name initial_pos">
+    <xacro:macro name="position_joint_interface" params="joint_name initial_pos">
 
         <joint name="${joint_name}">
             <!-- Command Interface -->

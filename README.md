@@ -31,18 +31,18 @@ ros2 launch arm_gazebo arm_gazebo.launch.py
 
 3. **Camera Sensor**
 ```shell
-ros2 launch arm_gazebo arm_gazebo.launch
+ros2 launch arm_gazebo arm_gazebo.launch.py
 ```
 in another terminal
 ```shell
-ros2 rqt_image_view rqt_image_view
+ros2 run rqt_image_view rqt_image_view
 ```
 
 4. **ROS custom node**
 ```shell
-ros2 launch arm_gazebo arm_gazebo.launch
+ros2 launch arm_gazebo arm_gazebo.launch.py
 ```
 in another terminal
 ```shell
-ros2 run arm_controller arm_controller_node
+ros2 run arm_controller arm_controller_node --ros-args -p joint_positions:="[ , , , ]"
 ```

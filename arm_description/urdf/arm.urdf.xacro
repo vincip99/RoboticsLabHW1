@@ -435,10 +435,10 @@
     </hardware>
 
     <!-- Hardware Interface macro call -->
-    <xacro:arm_hardware_interface joint_name="j0" initial_pos="0.0"/>
-    <xacro:arm_hardware_interface joint_name="j1" initial_pos="0.0"/>
-    <xacro:arm_hardware_interface joint_name="j2" initial_pos="0.0"/>
-    <xacro:arm_hardware_interface joint_name="j3" initial_pos="0.0"/>
+    <xacro:position_joint_interface joint_name="j0" initial_pos="0.0"/>
+    <xacro:position_joint_interface joint_name="j1" initial_pos="0.0"/>
+    <xacro:position_joint_interface joint_name="j2" initial_pos="0.0"/>
+    <xacro:position_joint_interface joint_name="j3" initial_pos="0.0"/>
 
   </ros2_control>
 

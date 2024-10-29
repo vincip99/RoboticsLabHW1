@@ -40,6 +40,10 @@ class PositionControllerPublisher : public rclcpp::Node
     PositionControllerPublisher()
     : Node("position_controller_publisher"), count_(0)
     {
+      // Declare an external parameter with a default value
+      this->declare_parameter<std::vector<double>>("joint_positions", {1.0, 1.0, 1.0, 1.0});
+
+      // Retrieve the parameter's value and initialize the publisher and timer
       publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>("/position_controller/commands", 10);
       timer_ = this->create_wall_timer(
       500ms, std::bind(&PositionControllerPublisher::timer_callback, this));
@@ -48,8 +52,12 @@ class PositionControllerPublisher : public rclcpp::Node
   private:
     void timer_callback()
     {
+      // Retrieve the parameter value on each callback
+      std::vector<double> joint_positions;
+      this->get_parameter("joint_positions", joint_positions);
+
       auto commands = std_msgs::msg::Float64MultiArray();
-      commands.data = {1.0, 1.0, 1.0, 1.0};  // Initialize all values at once
+      commands.data = joint_positions;  // Initialize all values at once
       RCLCPP_INFO(this->get_logger(), "Publishing: '%zu'", count_++);
       publisher_->publish(commands);
     }
