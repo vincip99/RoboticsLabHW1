@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
+<!-- macro for creating a joint with a command and feedback interfaces -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-
     <xacro:macro name="position_joint_interface" params="joint_name initial_pos">
-
+     <!-- Define a joint element -->
         <joint name="${joint_name}">
             <!-- Command Interface -->
             <command_interface name="position"/>
-            <!-- Feedback state Interface -->
+            <!-- Feedback state Interface (position, velocity, effort)-->
             <state_interface name="position"> 
                 <param name="initial_value">${initial_pos}</param>
             </state_interface>
@@ -17,7 +17,5 @@
                 <param name="initial_value">0.0</param>
             </state_interface>
         </joint>
-
     </xacro:macro>
-
 </robot>

@@ -27,7 +27,7 @@ class JointStateSubscriber : public rclcpp::Node
     void topic_callback(const sensor_msgs::msg::JointState & msg) const
     {
       RCLCPP_INFO(this->get_logger(), "-----Joint Positions-----\n");
-      for (int i = 0; i < 5; i++)
+      for (int i = 0; i < 4; i++)
         RCLCPP_INFO(this->get_logger(), "Joint Position %d: '%6f'\n", i+1, msg.position[i]);
     }
     rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr subscription_;
@@ -59,6 +59,9 @@ class PositionControllerPublisher : public rclcpp::Node
       auto commands = std_msgs::msg::Float64MultiArray();
       commands.data = joint_positions;  // Initialize all values at once
       RCLCPP_INFO(this->get_logger(), "Publishing: '%zu'", count_++);
+      RCLCPP_INFO(this->get_logger(), "-----Joint Commands-----\n");
+      for (int i = 0; i < 4; i++)
+        RCLCPP_INFO(this->get_logger(), "Joint command %d: '%6f'\n", i+1, joint_positions[i]);
       publisher_->publish(commands);
     }
     rclcpp::TimerBase::SharedPtr timer_;

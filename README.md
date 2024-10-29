@@ -20,16 +20,24 @@ source install/setup.bash
 ```
 ## Usage
 1. **URDF Model and Rviz Visualization**
+   - **arm_description**: Contains the URDF model of the robotic arm.
+   - **Launch file**: `display.launch.py` to load and visualize the robot in Rviz2.
+   - **Collision Meshes**: Replaced with primitive shapes for efficient collision detection.
 ```shell
 ros2 launch arm_description display.launch.py
 ```
 
 2. **Gazebo Simulation**
+   - **arm_gazebo**: Includes the launch file `arm_world.launch.py` to spawn the robot in a Gazebo world.
+   - **Hardware interface and Controllers**: Configured joint interfaces and controllers for joint control.
+   - **Control Configuration**: `arm_control.launch.py` and `arm_control.yaml` to manage joint position controllers.
 ```shell
 ros2 launch arm_gazebo arm_gazebo.launch.py
 ```
 
 3. **Camera Sensor**
+   - Added a camera sensor to the robot's URDF.
+   - Configured the camera plugin in Gazebo and verified image publishing with `rqt_image_view`
 ```shell
 ros2 launch arm_gazebo arm_gazebo.launch.py
 ```
@@ -39,6 +47,8 @@ ros2 run rqt_image_view rqt_image_view
 ```
 
 4. **ROS custom node**
+   - **arm_controller**: A ROS2 C++ node to read joint states and send position commands.
+   - **Functionality**: Publishes custom commands to actuate joints and prints joint states to the terminal.
 ```shell
 ros2 launch arm_gazebo arm_gazebo.launch.py
 ```

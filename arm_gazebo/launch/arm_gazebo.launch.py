@@ -16,17 +16,21 @@ from launch.event_handlers import OnProcessExit
  
 def generate_launch_description():
 
+    # Include the arm_world launch file
     arm_world = IncludeLaunchDescription(
       PythonLaunchDescriptionSource([os.path.join(
          get_package_share_directory('arm_gazebo'), 'launch'),
          '/arm_world.launch.py'])
       )
+    
+    # Include the arm_control launch file after arm_world
     arm_control = IncludeLaunchDescription(
       PythonLaunchDescriptionSource([os.path.join(
          get_package_share_directory('arm_control'), 'launch'),
          '/arm_control.launch.py'])
       )
 
+    # Bridge 
     bridge_camera = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',

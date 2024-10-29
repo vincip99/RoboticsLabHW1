@@ -10,15 +10,6 @@
       <color rgba="0 0 0 1"/>
   </material>
 
-  <!-- Add world reference -->
-  <link name="world"/>
-
-  <joint name="base_joint" type="fixed">
-    <origin rpy="0.0 0 0" xyz="0 0 0"/>
-    <parent link="world"/>
-    <child link="base_link"/>
-  </joint>
-
   <link name="base_link">
     <visual>
       <geometry>
@@ -413,10 +404,11 @@
   </link>
 
   <!-- camera link and camera joint -->
+  <!--origin xyz="0.5 -0.3 0.6" rpy="0.0 0.5 -3.66"/-->
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera_link"/>
-    <origin xyz="0.5 -0.3 0.6" rpy="0.0 0.5 -3.66"/>
+    <origin xyz="0 0 0" rpy="0 0 -1.57"/>
   </joint>
 
   <material name="grey">
